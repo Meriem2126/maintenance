@@ -65,7 +65,7 @@ Maintenance is required
 An anomaly is detected
 
 Carbon emissions are high
-5. **Visualizations:** Interactive data visualizations including:
+## 5.Visualizations: Interactive data visualizations including:
 
 Histograms of sensor readings
 
@@ -74,12 +74,12 @@ Scatter plots (Operational Hours vs Sensors)
 Line chart of RUL over time
 
 Overlay of user input on charts
-6. ##  Machine Status
+## 6.Machine Status
 
 Cluster-based health monitoring (KMeans clustering)
 
 List of machines requiring maintenance
-7. # Reports
+## 7.Reports
 
 Users can generate downloadable CSV reports:
 
