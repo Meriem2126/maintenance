@@ -1,90 +1,500 @@
-/* General Styles */
+/* =====================================================
+   HENKEL PREDICTIVE MAINTENANCE - CUSTOM STYLES
+   Red & White Corporate Theme
+   ===================================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap');
+
+/* =====================================================
+   GENERAL STYLES
+   ===================================================== */
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f2f6fc;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    color: #333333;
 }
 
-/* Sidebar Styles */
-.css-nlntq9 {
-    background-color: #0d47a1;
-    color: #ffffff;
-    padding: 20px;
-}
-
-.css-nlntq9 a {
-    color: #ffffff;
-}
-
-.css-nlntq9 a:hover {
-    color: #bbdefb;
-}
-
-/* Main Content Styles */
+/* Main container */
 .main {
     padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.stMarkdown {
+/* Henkel watermark background */
+.stApp::before {
+    content: "HENKEL";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 15rem;
+    font-weight: 700;
+    color: rgba(227, 6, 19, 0.03);
+    z-index: 0;
+    pointer-events: none;
+    letter-spacing: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* =====================================================
+   SIDEBAR STYLES
+   ===================================================== */
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #E30613 0%, #B8050F 100%);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* Sidebar title */
+[data-testid="stSidebar"] h1 {
+    color: white !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px;
+}
+
+/* =====================================================
+   NAVIGATION MENU
+   ===================================================== */
+
+.nav-link {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    margin: 5px 0 !important;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateX(5px);
+}
+
+.nav-link-selected {
+    background-color: white !important;
+    color: #E30613 !important;
+    font-weight: 600;
+}
+
+/* =====================================================
+   HEADERS AND TYPOGRAPHY
+   ===================================================== */
+
+h1 {
+    color: #E30613;
+    font-weight: 700;
+    border-bottom: 3px solid #E30613;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #E30613;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #E30613;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #666666;
+    font-weight: 600;
+}
+
+/* =====================================================
+   METRIC CARDS
+   ===================================================== */
+
+.metric-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.1);
+    border-left: 5px solid #E30613;
+    margin: 15px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(227, 6, 19, 0.2);
+}
+
+.metric-card h3, .metric-card h4 {
+    margin-top: 0;
+    color: #E30613;
+}
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+.stButton > button {
+    background: linear-gradient(135deg, #E30613 0%, #B8050F 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
     font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(227, 6, 19, 0.3);
+    cursor: pointer;
 }
 
-/* Chart Styles */
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(227, 6, 19, 0.4);
+    background: linear-gradient(135deg, #C0050F 0%, #A00410 100%);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(227, 6, 19, 0.3);
+}
+
+/* =====================================================
+   ALERTS AND MESSAGES
+   ===================================================== */
+
+/* Success messages */
+.stSuccess {
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    border-radius: 8px;
+    padding: 15px;
+    color: #155724;
+}
+
+/* Warning messages */
+.stWarning {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+    border-radius: 8px;
+    padding: 15px;
+    color: #856404;
+}
+
+/* Error messages */
+.stError {
+    background-color: #f8d7da;
+    border-left: 5px solid #E30613;
+    border-radius: 8px;
+    padding: 15px;
+    color: #721c24;
+}
+
+/* Info messages */
+.stInfo {
+    background-color: #d1ecf1;
+    border-left: 5px solid #0c5460;
+    border-radius: 8px;
+    padding: 15px;
+    color: #0c5460;
+}
+
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+
+.info-box {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+    border: 2px solid #E30613;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.info-box h3 {
+    margin-top: 0;
+    color: #E30613;
+}
+
+.info-box p {
+    margin-bottom: 0;
+    color: #666666;
+}
+
+/* =====================================================
+   DATA TABLES
+   ===================================================== */
+
+.dataframe {
+    border: 2px solid #E30613 !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dataframe thead tr th {
+    background-color: #E30613 !important;
+    color: white !important;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.dataframe tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.dataframe tbody tr:hover {
+    background-color: #ffe6e6;
+}
+
+/* =====================================================
+   SLIDERS AND INPUTS
+   ===================================================== */
+
+/* Slider track */
+.stSlider > div > div > div {
+    background: linear-gradient(90deg, #E30613 0%, #B8050F 100%);
+}
+
+/* Slider thumb */
+.stSlider > div > div > div > div {
+    background-color: #E30613;
+}
+
+/* Text input */
+.stTextInput > div > div > input {
+    border: 2px solid #E30613;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: #B8050F;
+    box-shadow: 0 0 5px rgba(227, 6, 19, 0.3);
+}
+
+/* Number input */
+.stNumberInput > div > div > input {
+    border: 2px solid #E30613;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* =====================================================
+   METRICS
+   ===================================================== */
+
+[data-testid="stMetricValue"] {
+    color: #E30613;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #666666;
+    font-weight: 600;
+}
+
+[data-testid="stMetricDelta"] {
+    color: #28a745;
+}
+
+/* =====================================================
+   CHARTS AND VISUALIZATIONS
+   ===================================================== */
+
+.chart-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
 .chart-container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #E30613;
 }
 
-/* Button Styles */
-.css-1x8cf1d {
-    background-color: #2196f3;
-    color: #ffffff;
-    border: none;
+/* =====================================================
+   TABS
+   ===================================================== */
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 10px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: transparent;
+    border: 2px solid #E30613;
+    color: #E30613;
+    border-radius: 8px;
     padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
 }
 
-.css-1x8cf1d:hover {
-    background-color: #1976d2;
+.stTabs [aria-selected="true"] {
+    background-color: #E30613;
+    color: white;
 }
 
-/* Slider Styles */
-.st-d9 {
-    color: #0d47a1;
+/* =====================================================
+   EXPANDERS
+   ===================================================== */
+
+.streamlit-expanderHeader {
+    background-color: #ffe6e6;
+    border: 2px solid #E30613;
+    border-radius: 8px;
+    color: #E30613;
+    font-weight: 600;
 }
 
-.st-d9:hover {
-    color: #1976d2;
+.streamlit-expanderContent {
+    border: 2px solid #E30613;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
 }
 
-/* Responsive Grid Layout */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-gap: 20px;
+/* =====================================================
+   SELECTBOX AND MULTISELECT
+   ===================================================== */
+
+.stSelectbox > div > div {
+    border: 2px solid #E30613;
+    border-radius: 8px;
 }
 
-.sidebar {
-    grid-column: 1;
+.stMultiSelect > div > div {
+    border: 2px solid #E30613;
+    border-radius: 8px;
 }
 
-.main-content {
-    grid-column: 2;
+/* =====================================================
+   PROGRESS BAR
+   ===================================================== */
+
+.stProgress > div > div > div {
+    background-color: #E30613;
 }
+
+/* =====================================================
+   COLUMNS AND LAYOUT
+   ===================================================== */
+
+.row-widget {
+    padding: 10px 0;
+}
+
+/* Column spacing */
+[data-testid="column"] {
+    padding: 0 10px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
 
 @media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
+    .metric-card {
+        padding: 15px;
+        margin: 10px 0;
     }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .chart-wrapper {
+        padding: 15px;
+    }
+}
 
-    .sidebar {
-        grid-column: 1;
-    }
+/* =====================================================
+   SCROLLBAR STYLING
+   ===================================================== */
 
-    .main-content {
-        grid-column: 1;
-    }
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #E30613 0%, #B8050F 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #B8050F;
+}
+
+/* =====================================================
+   LOADING SPINNER
+   ===================================================== */
+
+.stSpinner > div {
+    border-top-color: #E30613 !important;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    background-color: #f5f5f5;
+    border-top: 3px solid #E30613;
+    padding: 20px;
+    text-align: center;
+    color: #666666;
+}
+
+footer a {
+    color: #E30613;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   MISC UTILITIES
+   ===================================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-red {
+    color: #E30613;
+}
+
+.bg-red {
+    background-color: #E30613;
+}
+
+.border-red {
+    border: 2px solid #E30613;
+}
+
+.shadow-henkel {
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.15);
 }
